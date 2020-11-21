@@ -23,8 +23,9 @@ public class WeatherDbHelper extends SQLiteOpenHelper {
                 WeatherContract.WeatherEntry.COLUMN_DEGREES +" Real not null,"+
                 WeatherContract.WeatherEntry.COLUMN_HUMIDITY +" Real not null,"+
                 WeatherContract.WeatherEntry.COLUMN_PRESSURE +" Real not null,"+
-                WeatherContract.WeatherEntry.COLUMN_WIND_SPEED +" Real  not null "
-                + ");";
+                WeatherContract.WeatherEntry.COLUMN_WIND_SPEED +" Real  not null ,"
+       + " UNIQUE (" + WeatherContract.WeatherEntry.COLUMN_DATE + ") ON CONFLICT REPLACE);";
+
         sqLiteDatabase.execSQL(Create);
 
     }
